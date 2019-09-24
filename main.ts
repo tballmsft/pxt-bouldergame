@@ -1,3 +1,6 @@
+namespace SpriteKind {
+    export const Rock = SpriteKind.create()
+}
 TileWorld.setTileMap(img`
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
 c d d d d d d d d d d b d d d d d d b d d d d d d d d d d d d c 
@@ -17,7 +20,7 @@ c d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d c
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
 `)
 TileWorld.setBackgroundTile(1)
-TileWorld.setTile(7, img`
+TileWorld.addTileSprite(7, img`
 . . . . . . f f f f . . . . . . 
 . . . . f f f 2 2 f f f . . . . 
 . . . f f f 2 3 2 2 f f f . . . 
@@ -34,8 +37,8 @@ TileWorld.setTile(7, img`
 . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
 . . . . . f f f f f f . . . . . 
 . . . . . f f . . f f . . . . . 
-`)
-TileWorld.setTile(6, img`
+`, SpriteKind.Player)
+TileWorld.addTileSprite(6, img`
 . . . . 8 8 8 8 8 8 8 8 . . . . 
 . . . 8 8 9 9 9 9 9 9 1 1 . . . 
 . . 8 8 8 8 9 9 9 9 1 1 1 1 . . 
@@ -52,8 +55,8 @@ TileWorld.setTile(6, img`
 . . . . . . . 9 1 . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
-`)
-TileWorld.setTile(11, img`
+`, SpriteKind.Rock)
+TileWorld.addTileSprite(11, img`
 . . . . . c c b b b . . . . . . 
 . . . . c b d d d d b . . . . . 
 . . . . c d d d d d d b b . . . 
@@ -70,7 +73,7 @@ c c b b c c c c b d d d b c c b
 . . c c c c c b b b b b b b c . 
 . . . . . . c c b b b b c c . . 
 . . . . . . . . c c c c . . . . 
-`)
+`, SpriteKind.Rock)
 TileWorld.setTile(10, img`
 d d d d d d d d d d d d d d d 8 
 d 6 6 6 8 8 8 6 6 6 6 6 6 6 8 8 

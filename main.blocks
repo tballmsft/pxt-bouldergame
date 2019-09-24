@@ -1,6 +1,12 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <variables></variables>
-  <block type="pxt-on-start" x="110" y="50">
+  <variables>
+    <variable type="KIND_SpriteKind" id="TPf~Iu23+R0cnI5//!|9">Rock</variable>
+    <variable type="KIND_SpriteKind" id="nQ}}I[9#S(?o1t/~{rD~">Player</variable>
+    <variable type="KIND_SpriteKind" id="0QuUZ,NMnk8H,JZUyCuz">Projectile</variable>
+    <variable type="KIND_SpriteKind" id="{F^3wQT_C~xeDV={_:vL">Food</variable>
+    <variable type="KIND_SpriteKind" id="N*mDaC$aItg(e4t0G21%">Enemy</variable>
+  </variables>
+  <block type="pxt-on-start" x="0" y="0">
     <statement name="HANDLER">
       <block type="TWsettilemap">
         <value name="map">
@@ -34,7 +40,7 @@ c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c
               </shadow>
             </value>
             <next>
-              <block type="TWsettile">
+              <block type="TWsetsprite">
                 <value name="index">
                   <shadow type="colorindexpicker">
                     <field name="index">7</field>
@@ -63,8 +69,13 @@ c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c
                     </field>
                   </shadow>
                 </value>
+                <value name="kind">
+                  <shadow type="spritekind">
+                    <field name="MEMBER">Player</field>
+                  </shadow>
+                </value>
                 <next>
-                  <block type="TWsettile">
+                  <block type="TWsetsprite">
                     <value name="index">
                       <shadow type="colorindexpicker">
                         <field name="index">6</field>
@@ -93,8 +104,13 @@ c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c
                         </field>
                       </shadow>
                     </value>
+                    <value name="kind">
+                      <shadow type="spritekind">
+                        <field name="MEMBER">Rock</field>
+                      </shadow>
+                    </value>
                     <next>
-                      <block type="TWsettile">
+                      <block type="TWsetsprite">
                         <value name="index">
                           <shadow type="colorindexpicker">
                             <field name="index">11</field>
@@ -121,6 +137,11 @@ c c b b c c c c b d d d b c c b
 . . . . . . . . c c c c . . . . 
 `
                             </field>
+                          </shadow>
+                        </value>
+                        <value name="kind">
+                          <shadow type="spritekind">
+                            <field name="MEMBER">Rock</field>
                           </shadow>
                         </value>
                         <next>
