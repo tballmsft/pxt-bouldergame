@@ -1,12 +1,21 @@
 namespace SpriteKind {
     export const Rock = SpriteKind.create()
 }
+TileWorld.onTileArrived(SpriteKind.Player, function (tile, direction) {
+    tile.hasNoCode(11, direction, _tileDir(TileDir.None))
+    tile.hasNoCode(10, direction, _tileDir(TileDir.None))
+    tile.hasNoCode(12, direction, _tileDir(TileDir.None))
+    tile.moveOne(direction)
+})
+TileWorld.onTileArrived(SpriteKind.Player, function (tile, direction) {
+    tile.setCode(1)
+})
 TileWorld.setTileMap(img`
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
 c d d d d d d d d d d b d d d d d d b d d d d d d d d d d d d c 
 c d d d d d 6 d d d d b d d d d d d b d d d d d d d d d d d d c 
 c d d 7 d d b d d d d b d d d d d d b d d d d b d d d d d d d c 
-c d d d d d d d d d d d d d d d d d b 1 1 d d d d d d b d d d c 
+c d d d d d 1 d d d d d d d d d d d b 1 1 d d d d d d b d d d c 
 c a a a a a a a a a a a a a a a a a a 1 1 d d d d d b d d d d c 
 c d d d d d d d d d d d d d d d d d d 1 1 d d d 6 b b b b b d c 
 c d d d b d d d d d d d d d d d d d d 1 1 6 d d d d b d d d d c 
@@ -146,3 +155,4 @@ f f f c c c c c f f f c c f f f
 f f f f c c c f f f c c c c f f 
 f f f f f f f f f c c c c c c f 
 `)
+TileWorld.moveWithButtons(SpriteKind.Player)
