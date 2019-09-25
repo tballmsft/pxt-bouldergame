@@ -26,7 +26,7 @@ c d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d c
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
 `)
 TileWorld.setBackgroundTile(1)
-TileWorld.addTileSprite(7, img`
+TileWorld.addSprite(7, img`
 . . . . . . f f f f . . . . . . 
 . . . . f f f 2 2 f f f . . . . 
 . . . f f f 2 3 2 2 f f f . . . 
@@ -43,8 +43,8 @@ TileWorld.addTileSprite(7, img`
 . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
 . . . . . f f f f f f . . . . . 
 . . . . . f f . . f f . . . . . 
-`, SpriteKind.Player)
-TileWorld.addTileSprite(6, img`
+`, KindKind.Movable, SpriteKind.Player)
+TileWorld.addSprite(6, img`
 . . . . 8 8 8 8 8 8 8 8 . . . . 
 . . . 8 8 9 9 9 9 9 9 1 1 . . . 
 . . 8 8 8 8 9 9 9 9 1 1 1 1 . . 
@@ -61,8 +61,8 @@ TileWorld.addTileSprite(6, img`
 . . . . . . . 9 1 . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
-`, SpriteKind.Rock)
-TileWorld.addTileSprite(11, img`
+`, KindKind.Movable, SpriteKind.Rock)
+TileWorld.addSprite(11, img`
 . . . . . c c b b b . . . . . . 
 . . . . c b d d d d b . . . . . 
 . . . . c d d d d d d b b . . . 
@@ -79,8 +79,8 @@ c c b b c c c c b d d d b c c b
 . . c c c c c b b b b b b b c . 
 . . . . . . c c b b b b c c . . 
 . . . . . . . . c c c c . . . . 
-`, SpriteKind.Rock)
-TileWorld.setTile(10, img`
+`, KindKind.Movable, SpriteKind.Rock)
+TileWorld.addSprite(10, img`
 d d d d d d d d d d d d d d d 8 
 d 6 6 6 8 8 8 6 6 6 6 6 6 6 8 8 
 d 6 6 8 6 6 6 8 6 6 6 6 6 6 8 8 
@@ -97,8 +97,8 @@ d 6 6 6 6 6 6 6 6 6 6 6 6 6 6 8
 d 8 8 8 8 6 6 6 6 8 8 8 8 8 6 8 
 d 6 6 6 6 6 6 6 8 8 6 6 6 8 6 8 
 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 
-`, SpriteKind.Wall)
-TileWorld.setTile(12, img`
+`, KindKind.Fixed, SpriteKind.Wall)
+TileWorld.addSprite(12, img`
 d d d d d d d d d d d d d d d 8 
 d 6 6 6 8 8 8 6 6 6 6 6 6 6 8 8 
 d 6 6 8 6 6 6 8 6 6 6 6 6 6 8 8 
@@ -115,8 +115,8 @@ d 6 6 6 6 6 6 6 6 6 6 6 6 6 6 8
 d 8 8 8 8 6 6 6 6 8 8 8 8 8 6 8 
 d 6 6 6 6 6 6 6 8 8 6 6 6 8 6 8 
 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 
-`, SpriteKind.Wall)
-TileWorld.setTile(13, img`
+`, KindKind.Fixed, SpriteKind.Wall)
+TileWorld.addSprite(13, img`
 f e e e e e f e e e e 4 4 4 4 e 
 e e 4 4 e e e f f f e e e e e e 
 e 4 4 4 4 4 e e f f f f f e e e 
@@ -133,8 +133,8 @@ f e 4 4 4 4 4 4 4 e f e e e e f
 e f e 4 4 4 4 4 e f e 4 4 e e e 
 e e f e 4 4 4 e f e 4 4 4 4 e e 
 f e e f e e e f e 4 4 4 4 4 4 e 
-`, SpriteKind.Dirt)
-TileWorld.setTile(1, img`
+`, KindKind.Fixed, SpriteKind.Dirt)
+TileWorld.addSprite(1, img`
 f f f f f f f f f f f c c c c f 
 f f c c f f f f f f f f f f f f 
 f c c c c c f f f f f f f f f f 
@@ -151,5 +151,5 @@ f f c c c c c c c f f f f f f f
 f f f c c c c c f f f c c f f f 
 f f f f c c c f f f c c c c f f 
 f f f f f f f f f c c c c c c f 
-`, SpriteKind.Space)
+`, KindKind.Fixed, SpriteKind.Space)
 TileWorld.moveWithButtons(SpriteKind.Player)

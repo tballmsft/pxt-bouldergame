@@ -1,22 +1,4 @@
-<xml xmlns="http://www.w3.org/1999/xhtml">
-  <variables>
-    <variable type="KIND_SpriteKind" id="/jn26yaEz*(6Zrb?z7q%">Rock</variable>
-    <variable type="KIND_SpriteKind" id="TLK%]1E5BzP-!jpwQ`^w">Player</variable>
-    <variable type="KIND_SpriteKind" id="U:w36|zD@`%s;KoG,,fl">Projectile</variable>
-    <variable type="KIND_SpriteKind" id="s~cXe5DFukO:^mFm{y/2">Food</variable>
-    <variable type="KIND_SpriteKind" id="UZns{B#?V}%Lsv5a**v8">Enemy</variable>
-    <variable type="KIND_SpriteKind" id="b%R:ppLOgUfcBJ1MHJrt">Wall</variable>
-    <variable type="KIND_SpriteKind" id="st56Pp~dmCO(%D1dm]dk">Dirt</variable>
-    <variable type="KIND_SpriteKind" id="k[-d|2^B,HX)GUGNlEUp">Space</variable>
-  </variables>
-  <comment data="0" x="0" y="0" h="120" w="480">TileWorld.onTileArrived(SpriteKind.Player, function (tile, direction) { tile.setCode(1) tile.hasNoCode(11, direction, _tileDir(TileDir.None)) tile.hasNoCode(10, direction, _tileDir(TileDir.None)) tile.hasNoCode(12, direction, _tileDir(TileDir.None)) tile.moveOne(direction) }) TileWorld.onTileTransition(SpriteKind.Player, function (tile) { tile.hasCode(6, TileDir.None, TileDir.None) }) TileWorld.onTileArrived(SpriteKind.Player, function (tile, direction) { TileWorld.isOneOf(direction, TileDir.Left, TileDir.Right) tile.hasCode(11, direction, TileDir.None) tile.hasCode(1, direction, direction) })</comment>
-  <block type="pxt-on-start" x="10" y="130">
-    <statement name="HANDLER">
-      <block type="TWsettilemap">
-        <data>0</data>
-        <value name="map">
-          <shadow type="tilemap_image_picker">
-            <field name="img">img`
+<xml xmlns="http://www.w3.org/1999/xhtml"><variables><variable type="KIND_SpriteKind" id="{g+,K4pK-Z_l|wE9zXG(">Rock</variable><variable type="KIND_SpriteKind" id="1m7H}wV-j!cX1K*X4tXX">Wall</variable><variable type="KIND_SpriteKind" id="KCG5Dk{2qyw]5+b49D5P">Dirt</variable><variable type="KIND_SpriteKind" id="P^5UVPjzRL2T4Q$iZ$he">Space</variable><variable type="KIND_SpriteKind" id="1G}6/ACJDYSsxI%:2wru">Player</variable><variable type="KIND_SpriteKind" id="!{MqJ:tue`s4/+PUeOAp">Projectile</variable><variable type="KIND_SpriteKind" id="~F4.WCNW](8GD8dK3I:S">Food</variable><variable type="KIND_SpriteKind" id="B53(6dKs5289U6nw#TZ}">Enemy</variable></variables><comment id="Rty8a+2y+JJ4pI9MpC$S" data="0" x="0" y="0" h="120" w="480">TileWorld.onTileArrived(SpriteKind.Player, function (tile, direction) { tile.setCode(1) tile.hasNoCode(11, direction, _tileDir(TileDir.None)) tile.hasNoCode(10, direction, _tileDir(TileDir.None)) tile.hasNoCode(12, direction, _tileDir(TileDir.None)) tile.moveOne(direction) }) TileWorld.onTileTransition(SpriteKind.Player, function (tile) { tile.hasCode(6, TileDir.None, TileDir.None) }) TileWorld.onTileArrived(SpriteKind.Player, function (tile, direction) { TileWorld.isOneOf(direction, TileDir.Left, TileDir.Right) tile.hasCode(11, direction, TileDir.None) tile.hasCode(1, direction, direction) })</comment><block type="pxt-on-start" id="#vA{VEi1V,bGY,3x|X?w" x="10" y="10"><statement name="HANDLER"><block type="TWsettilemap" id="{3DvgxBOxwU(qb$XR}9,"><data>0</data><value name="map"><shadow type="tilemap_image_picker" id="(i;WOq?MQR8a6nWnV$gc"><field name="img">img`
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
 c d d d d d d d d d d b d d d d d d b d d d d d d d d d d d d c 
 c d d d d d 6 d d d d b d d d d d d b d d d d d d d d d d d d c 
@@ -33,27 +15,7 @@ c d 1 d d d d 6 d d d d d d d d d d d d 6 6 6 d d d d d d d d c
 c d b d d d d d d d d d d d d d d d d d d 6 d d d d d d d d d c 
 c d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d c 
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
-`
-            </field>
-          </shadow>
-        </value>
-        <next>
-          <block type="TWsetbackgroundtile">
-            <value name="color">
-              <shadow type="colorindexpicker">
-                <field name="index">1</field>
-              </shadow>
-            </value>
-            <next>
-              <block type="TWsetsprite">
-                <value name="index">
-                  <shadow type="colorindexpicker">
-                    <field name="index">7</field>
-                  </shadow>
-                </value>
-                <value name="img">
-                  <shadow type="tile_image_picker">
-                    <field name="img">img`
+`</field></shadow></value><next><block type="TWsetbackgroundtile" id="EBr_gul7h/d?,%5R6pLY"><value name="color"><shadow type="colorindexpicker" id="Crh_9aqC[zfgJzkir*eu"><field name="index">1</field></shadow></value><next><block type="TWaddsprite" id="|s}[5ot,jL5i*[34o2H}"><field name="kk">KindKind.Movable</field><value name="code"><shadow type="colorindexpicker" id="jycLRBEd$ho7C|Tj8R8T"><field name="index">7</field></shadow></value><value name="image"><shadow type="tile_image_picker" id="}{0~v4DDm5+Hq7Z/kYz*"><field name="img">img`
 . . . . . . f f f f . . . . . . 
 . . . . f f f 2 2 f f f . . . . 
 . . . f f f 2 3 2 2 f f f . . . 
@@ -70,25 +32,7 @@ c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c
 . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
 . . . . . f f f f f f . . . . . 
 . . . . . f f . . f f . . . . . 
-`
-                    </field>
-                  </shadow>
-                </value>
-                <value name="kind">
-                  <shadow type="spritekind">
-                    <field name="MEMBER">Player</field>
-                  </shadow>
-                </value>
-                <next>
-                  <block type="TWsetsprite">
-                    <value name="index">
-                      <shadow type="colorindexpicker">
-                        <field name="index">6</field>
-                      </shadow>
-                    </value>
-                    <value name="img">
-                      <shadow type="tile_image_picker">
-                        <field name="img">img`
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="3XY/Jj[#=3)=vd2`ayb$"><field name="MEMBER">Player</field></shadow></value><next><block type="TWaddsprite" id="z!.Xda9sf`Pt#o0yhzT?"><field name="kk">KindKind.Movable</field><value name="code"><shadow type="colorindexpicker" id="6U4-/dvZD%0lrIonzK}:"><field name="index">6</field></shadow></value><value name="image"><shadow type="tile_image_picker" id="oeB@/^it)}ij1v-qW!vc"><field name="img">img`
 . . . . 8 8 8 8 8 8 8 8 . . . . 
 . . . 8 8 9 9 9 9 9 9 1 1 . . . 
 . . 8 8 8 8 9 9 9 9 1 1 1 1 . . 
@@ -105,25 +49,7 @@ c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c
 . . . . . . . 9 1 . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
-`
-                        </field>
-                      </shadow>
-                    </value>
-                    <value name="kind">
-                      <shadow type="spritekind">
-                        <field name="MEMBER">Rock</field>
-                      </shadow>
-                    </value>
-                    <next>
-                      <block type="TWsetsprite">
-                        <value name="index">
-                          <shadow type="colorindexpicker">
-                            <field name="index">11</field>
-                          </shadow>
-                        </value>
-                        <value name="img">
-                          <shadow type="tile_image_picker">
-                            <field name="img">img`
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="+-z.P0:-*J6Ds/asXx=a"><field name="MEMBER">Rock</field></shadow></value><next><block type="TWaddsprite" id="O{DIn4I[_!`DfVB43l!_"><field name="kk">KindKind.Movable</field><value name="code"><shadow type="colorindexpicker" id="FED;dvdB_LL5Tai*!.aZ"><field name="index">11</field></shadow></value><value name="image"><shadow type="tile_image_picker" id="rrXb.@W{JCqwRFf`s}5:"><field name="img">img`
 . . . . . c c b b b . . . . . . 
 . . . . c b d d d d b . . . . . 
 . . . . c d d d d d d b b . . . 
@@ -140,25 +66,7 @@ c c b b c c c c b d d d b c c b
 . . c c c c c b b b b b b b c . 
 . . . . . . c c b b b b c c . . 
 . . . . . . . . c c c c . . . . 
-`
-                            </field>
-                          </shadow>
-                        </value>
-                        <value name="kind">
-                          <shadow type="spritekind">
-                            <field name="MEMBER">Rock</field>
-                          </shadow>
-                        </value>
-                        <next>
-                          <block type="TWsettile">
-                            <value name="index">
-                              <shadow type="colorindexpicker">
-                                <field name="index">10</field>
-                              </shadow>
-                            </value>
-                            <value name="img">
-                              <shadow type="tile_image_picker">
-                                <field name="img">img`
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="(lg!jPDM$xq|J7_Qc8`1"><field name="MEMBER">Rock</field></shadow></value><next><block type="TWaddsprite" id="vH_rj?L2xay*RDG*L}1a"><field name="kk">KindKind.Fixed</field><value name="code"><shadow type="colorindexpicker" id="aZYWNy_@8aTAyXGF_[SR"><field name="index">10</field></shadow></value><value name="image"><shadow type="tile_image_picker" id="/8/Lm19]P}=8fwsCn5I%"><field name="img">img`
 d d d d d d d d d d d d d d d 8 
 d 6 6 6 8 8 8 6 6 6 6 6 6 6 8 8 
 d 6 6 8 6 6 6 8 6 6 6 6 6 6 8 8 
@@ -175,25 +83,7 @@ d 6 6 6 6 6 6 6 6 6 6 6 6 6 6 8
 d 8 8 8 8 6 6 6 6 8 8 8 8 8 6 8 
 d 6 6 6 6 6 6 6 8 8 6 6 6 8 6 8 
 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 
-`
-                                </field>
-                              </shadow>
-                            </value>
-                            <value name="kind">
-                              <shadow type="spritekind">
-                                <field name="MEMBER">Wall</field>
-                              </shadow>
-                            </value>
-                            <next>
-                              <block type="TWsettile">
-                                <value name="index">
-                                  <shadow type="colorindexpicker">
-                                    <field name="index">12</field>
-                                  </shadow>
-                                </value>
-                                <value name="img">
-                                  <shadow type="tile_image_picker">
-                                    <field name="img">img`
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="5_LF,aiy|%q/iZcN[RBE"><field name="MEMBER">Wall</field></shadow></value><next><block type="TWaddsprite" id="^tPVm$`OSPOc#;`=Oc{b"><field name="kk">KindKind.Fixed</field><value name="code"><shadow type="colorindexpicker" id="~k]@T;Z*tBtsOHP}amU/"><field name="index">12</field></shadow></value><value name="image"><shadow type="tile_image_picker" id="CW|Mh;f1PYDd/[Xm`qn)"><field name="img">img`
 d d d d d d d d d d d d d d d 8 
 d 6 6 6 8 8 8 6 6 6 6 6 6 6 8 8 
 d 6 6 8 6 6 6 8 6 6 6 6 6 6 8 8 
@@ -210,25 +100,7 @@ d 6 6 6 6 6 6 6 6 6 6 6 6 6 6 8
 d 8 8 8 8 6 6 6 6 8 8 8 8 8 6 8 
 d 6 6 6 6 6 6 6 8 8 6 6 6 8 6 8 
 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 
-`
-                                    </field>
-                                  </shadow>
-                                </value>
-                                <value name="kind">
-                                  <shadow type="spritekind">
-                                    <field name="MEMBER">Wall</field>
-                                  </shadow>
-                                </value>
-                                <next>
-                                  <block type="TWsettile">
-                                    <value name="index">
-                                      <shadow type="colorindexpicker">
-                                        <field name="index">13</field>
-                                      </shadow>
-                                    </value>
-                                    <value name="img">
-                                      <shadow type="tile_image_picker">
-                                        <field name="img">img`
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="v%o7FI#V[:s$N_M{BAhI"><field name="MEMBER">Wall</field></shadow></value><next><block type="TWaddsprite" id="/10~=)j|4jQRJ1M-yauy"><field name="kk">KindKind.Fixed</field><value name="code"><shadow type="colorindexpicker" id="0[h2a3@GaKG][H@nP{gV"><field name="index">13</field></shadow></value><value name="image"><shadow type="tile_image_picker" id="0eUKZ#.b:c5[IRR/%Gf6"><field name="img">img`
 f e e e e e f e e e e 4 4 4 4 e 
 e e 4 4 e e e f f f e e e e e e 
 e 4 4 4 4 4 e e f f f f f e e e 
@@ -245,25 +117,7 @@ f e 4 4 4 4 4 4 4 e f e e e e f
 e f e 4 4 4 4 4 e f e 4 4 e e e 
 e e f e 4 4 4 e f e 4 4 4 4 e e 
 f e e f e e e f e 4 4 4 4 4 4 e 
-`
-                                        </field>
-                                      </shadow>
-                                    </value>
-                                    <value name="kind">
-                                      <shadow type="spritekind">
-                                        <field name="MEMBER">Dirt</field>
-                                      </shadow>
-                                    </value>
-                                    <next>
-                                      <block type="TWsettile">
-                                        <value name="index">
-                                          <shadow type="colorindexpicker">
-                                            <field name="index">1</field>
-                                          </shadow>
-                                        </value>
-                                        <value name="img">
-                                          <shadow type="tile_image_picker">
-                                            <field name="img">img`
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="|puvG$f%;gJGddplbm_u"><field name="MEMBER">Dirt</field></shadow></value><next><block type="TWaddsprite" id="l0%8/0myiS9C7YTY.*Wy"><field name="kk">KindKind.Fixed</field><value name="code"><shadow type="colorindexpicker" id="O79IHtaJ_|}w{8e.5X?["><field name="index">1</field></shadow></value><value name="image"><shadow type="tile_image_picker" id=")46O+GkYSgBeBy_+%dh|"><field name="img">img`
 f f f f f f f f f f f c c c c f 
 f f c c f f f f f f f f f f f f 
 f c c c c c f f f f f f f f f f 
@@ -280,41 +134,4 @@ f f c c c c c c c f f f f f f f
 f f f c c c c c f f f c c f f f 
 f f f f c c c f f f c c c c f f 
 f f f f f f f f f c c c c c c f 
-`
-                                            </field>
-                                          </shadow>
-                                        </value>
-                                        <value name="kind">
-                                          <shadow type="spritekind">
-                                            <field name="MEMBER">Space</field>
-                                          </shadow>
-                                        </value>
-                                        <next>
-                                          <block type="TWmoveButtons">
-                                            <value name="kind">
-                                              <shadow type="spritekind">
-                                                <field name="MEMBER">Player</field>
-                                              </shadow>
-                                            </value>
-                                          </block>
-                                        </next>
-                                      </block>
-                                    </next>
-                                  </block>
-                                </next>
-                              </block>
-                            </next>
-                          </block>
-                        </next>
-                      </block>
-                    </next>
-                  </block>
-                </next>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </statement>
-  </block>
-</xml>
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="6[x*$CqG0aG-HDIYgR=i"><field name="MEMBER">Space</field></shadow></value><next><block type="TWmoveButtons" id="gPK%U7{b:X-m#fB0j0PM"><value name="kind"><shadow type="spritekind" id="6gsXe@%mDD1EGF|(w!3W"><field name="MEMBER">Player</field></shadow></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block></xml>
