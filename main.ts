@@ -4,6 +4,12 @@ namespace SpriteKind {
     export const Dirt = SpriteKind.create()
     export const Space = SpriteKind.create()
 }
+TileWorld.onTileArrived(SpriteKind.Player, function (tile, direction) {
+    tile.setCode(1)
+    tile.hasKind(SpriteKind.Wall, direction, _tileDir(TileDir.None), ResultSet.Zero)
+    tile.hasCode(11, direction, _tileDir(TileDir.None), ResultSet.Zero)
+    tile.moveOne(direction)
+})
 /**
  * TileWorld.onTileArrived(SpriteKind.Player, function (tile, direction) { tile.setCode(1) tile.hasNoCode(11, direction, _tileDir(TileDir.None)) tile.hasNoCode(10, direction, _tileDir(TileDir.None)) tile.hasNoCode(12, direction, _tileDir(TileDir.None)) tile.moveOne(direction) }) TileWorld.onTileTransition(SpriteKind.Player, function (tile) { tile.hasCode(6, TileDir.None, TileDir.None) }) TileWorld.onTileArrived(SpriteKind.Player, function (tile, direction) { TileWorld.isOneOf(direction, TileDir.Left, TileDir.Right) tile.hasCode(11, direction, TileDir.None) tile.hasCode(1, direction, direction) })
  */
