@@ -5,6 +5,7 @@ namespace SpriteKind {
     export const Space = SpriteKind.create()
 }
 TileWorld.onMoveRequest(SpriteKind.Player, function (direction) {
+    TileWorld.setCode(1)
     TileWorld.move(direction)
 })
 TileWorld.setTileMap(img`
