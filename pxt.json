@@ -2,7 +2,7 @@
     "name": "boulderGame",
     "dependencies": {
         "device": "*",
-        "pxt-tilesprite": "workspace:61b84db3-6c7a-4117-3e63-465e2303c6ff"
+        "pxt-tilesprite": "workspace:8fa74bb4-4622-48be-98e5-0a7f5d98f336"
     },
     "description": "",
     "files": [
@@ -10,8 +10,6 @@
         "main.ts",
         "README.md"
     ],
-    "preferredEditor": "tsprj",
-    "testFiles": [
-        "test.ts"
-    ]
+    "preferredEditor": "blocksprj",
+    "testFiles": []
 }
