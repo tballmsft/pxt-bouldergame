@@ -10,6 +10,13 @@ TileWorld.onMoveRequest(SpriteKind.Player, function (direction) {
     TileWorld.hasCode(11, direction, _tileDir(TileDir.None), ResultSet.Zero)
     TileWorld.moveSelf(direction)
 })
+TileWorld.onMoveRequest(SpriteKind.Player, function (direction) {
+    TileWorld._isOneOf(direction, Membership.OneOf, TileDir.Left, TileDir.Right)
+    TileWorld.hasCode(11, direction, _tileDir(TileDir.None), ResultSet.One)
+    TileWorld.hasCode(1, direction, direction, ResultSet.One)
+    TileWorld.moveSelf(direction)
+    TileWorld.moveOther(direction, direction)
+})
 TileWorld.setTileMap(img`
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
 c d d d d d d d d d d b d d d d d d b d d d d d d d d d d d d c 
