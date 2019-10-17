@@ -36,6 +36,10 @@ TileWorld.onMovedInto(SpriteKind.Rock, function () {
     TileWorld.hasCode(7, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
     game.over(false)
 })
+TileWorld.onMovedInto(SpriteKind.Player, function () {
+    TileWorld.hasCode(11, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
+    game.over(false)
+})
 TileWorld.onChangeAround(SpriteKind.Rock, function () {
     TileWorld.hasKind(SpriteKind.Space, _tileDir(TileDir.Down), _tileDir(TileDir.None), ResultSet.Only)
     TileWorld.moveSelf(_tileDir(TileDir.Down))
