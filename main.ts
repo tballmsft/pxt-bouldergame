@@ -4,11 +4,38 @@ namespace SpriteKind {
     export const Dirt = SpriteKind.create()
     export const Space = SpriteKind.create()
 }
+TileWorld.onMoveRequest(SpriteKind.Player, function (dir) {
+    TileWorld._isOneOf(dir, Membership.OneOf, TileDir.Left, TileDir.Right)
+    TileWorld.hasCode(11, dir, _tileDir(TileDir.None), ResultSet.One)
+    TileWorld.hasKind(SpriteKind.Space, dir, dir, ResultSet.Only)
+    TileWorld.moveSelf(dir)
+    TileWorld.moveOther(dir, dir)
+})
+TileWorld.onMoveRequest(SpriteKind.Player, function (dir) {
+    TileWorld.setCode(1, _tileDir(TileDir.None))
+    TileWorld.hasKind(SpriteKind.Wall, dir, _tileDir(TileDir.None), ResultSet.Zero)
+    TileWorld.hasCode(11, dir, _tileDir(TileDir.None), ResultSet.Zero)
+    TileWorld.moveSelf(dir)
+})
+TileWorld.onMovedInto(SpriteKind.Player, function () {
+    TileWorld.hasCode(2, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
+    game.over(false)
+})
+TileWorld.onMovedInto(SpriteKind.Enemy, function () {
+    TileWorld.hasCode(7, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
+    game.over(false)
+})
+TileWorld.onMovedInto(SpriteKind.Player, function () {
+    TileWorld.hasCode(11, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
+    game.over(false)
+})
+TileWorld.onMovedInto(SpriteKind.Rock, function () {
+    TileWorld.hasCode(7, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
+    game.over(false)
+})
 TileWorld.onChangeAround(SpriteKind.Rock, function () {
-    TileWorld.hasKind(SpriteKind.Space, _tileDir(TileDir.Right), _tileDir(TileDir.None), ResultSet.Only)
-    TileWorld.hasKind(SpriteKind.Space, _tileDir(TileDir.Right), _tileDir(TileDir.Down), ResultSet.Only)
-    TileWorld.hasKind(SpriteKind.Rock, _tileDir(TileDir.Down), _tileDir(TileDir.None), ResultSet.One)
-    TileWorld.moveSelf(_tileDir(TileDir.Right))
+    TileWorld.hasKind(SpriteKind.Space, _tileDir(TileDir.Down), _tileDir(TileDir.None), ResultSet.Only)
+    TileWorld.moveSelf(_tileDir(TileDir.Down))
 })
 TileWorld.onMoveRequest(SpriteKind.Rock, function (dir) {
     TileWorld._isOneOf(dir, Membership.OneOf, TileDir.Down, TileDir.None)
@@ -20,36 +47,21 @@ TileWorld.onMovedInto(SpriteKind.Player, function () {
     TileWorld.hasCode(6, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
     TileWorld.removeOther(_tileDir(TileDir.None))
 })
-TileWorld.onMoveRequest(SpriteKind.Player, function (dir) {
-    TileWorld.setCode(1, _tileDir(TileDir.None))
-    TileWorld.hasKind(SpriteKind.Wall, dir, _tileDir(TileDir.None), ResultSet.Zero)
-    TileWorld.hasCode(11, dir, _tileDir(TileDir.None), ResultSet.Zero)
-    TileWorld.moveSelf(dir)
-})
 TileWorld.onChangeAround(SpriteKind.Rock, function () {
     TileWorld.hasKind(SpriteKind.Space, _tileDir(TileDir.Left), _tileDir(TileDir.None), ResultSet.Only)
     TileWorld.hasKind(SpriteKind.Space, _tileDir(TileDir.Left), _tileDir(TileDir.Down), ResultSet.Only)
     TileWorld.hasKind(SpriteKind.Rock, _tileDir(TileDir.Down), _tileDir(TileDir.None), ResultSet.One)
     TileWorld.moveSelf(_tileDir(TileDir.Left))
 })
-TileWorld.onMovedInto(SpriteKind.Rock, function () {
-    TileWorld.hasCode(7, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
-    game.over(false)
-})
-TileWorld.onMovedInto(SpriteKind.Player, function () {
-    TileWorld.hasCode(11, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
-    game.over(false)
-})
 TileWorld.onChangeAround(SpriteKind.Rock, function () {
-    TileWorld.hasKind(SpriteKind.Space, _tileDir(TileDir.Down), _tileDir(TileDir.None), ResultSet.Only)
-    TileWorld.moveSelf(_tileDir(TileDir.Down))
+    TileWorld.hasKind(SpriteKind.Space, _tileDir(TileDir.Right), _tileDir(TileDir.None), ResultSet.Only)
+    TileWorld.hasKind(SpriteKind.Space, _tileDir(TileDir.Right), _tileDir(TileDir.Down), ResultSet.Only)
+    TileWorld.hasKind(SpriteKind.Rock, _tileDir(TileDir.Down), _tileDir(TileDir.None), ResultSet.One)
+    TileWorld.moveSelf(_tileDir(TileDir.Right))
 })
-TileWorld.onMoveRequest(SpriteKind.Player, function (dir) {
-    TileWorld._isOneOf(dir, Membership.OneOf, TileDir.Left, TileDir.Right)
-    TileWorld.hasCode(11, dir, _tileDir(TileDir.None), ResultSet.One)
-    TileWorld.hasKind(SpriteKind.Space, dir, dir, ResultSet.Only)
-    TileWorld.moveSelf(dir)
-    TileWorld.moveOther(dir, dir)
+TileWorld.onMovedInto(SpriteKind.Rock, function () {
+    TileWorld.hasCode(2, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
+    TileWorld.removeOther(_tileDir(TileDir.None))
 })
 TileWorld.setTileMap(img`
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
@@ -60,12 +72,12 @@ c d d d d d d d d d d d d d d d d d b 1 1 d d d d d d b d d d c
 c a a a a a a a a a a a a a a a a a a 1 1 d d d d d b d d d d c 
 c d d d d d d d d d d d d d d d d d d 1 1 d d d 6 b b b b b d c 
 c d d d b d d d d d d d d d d d d d d 1 1 6 d d d d b d d d d c 
-c d d d d d d d d d d d d d d 6 d d d 1 1 d d d d d d b d d d c 
+c d d d d d d d d d d d d d d 6 d d d 2 1 d d d d d d b d d d c 
 c d d d d d d d d a a a a a a a a a a a a a a a a a a a a a a c 
-c d 1 d d d d 6 d d d d d d d d 1 1 1 1 1 1 1 1 1 1 2 d d d d c 
-c d 1 1 d d b b b d d d d d d d d d d d d 6 d d d d d d d d d c 
-c d 1 d d d d 6 d d d d d d d d d d d d 6 6 6 d d d d d d d d c 
-c d b d d d d d d d d d d d d d d d d d d 6 d d d d d d d d d c 
+c d 1 d d d d 6 d d d d d d d d b 1 1 1 1 1 1 1 1 1 1 d d d d c 
+c d 1 1 d d b b b d d d d d d d d d d d d 6 d d d d 1 d d d d c 
+c d 1 d d d d 6 d d d d d d d d d d d d 6 6 6 d d d 1 d d d d c 
+c d b d d d d d d d d d d d d d d d d d d 6 d d d d 2 d d d d c 
 c d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d c 
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
 `)
@@ -196,4 +208,30 @@ f f f c c c c c f f f c c f f f
 f f f f c c c f f f c c c c f f 
 f f f f f f f f f c c c c c c f 
 `, Spritely.Fixed, SpriteKind.Space)
+TileWorld.addSprite(2, img`
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . f f f f . . . . . . . . . . 
+. . . . . . . . f f 1 1 1 1 f f . . . . . . . . 
+. . . . . . . f b 1 1 1 1 1 1 b f . . . . . . . 
+. . . . . . . f 1 1 1 1 1 1 1 1 f . . . . . . . 
+. . . . . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
+. . . . 7 . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
+. . . 7 . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
+. . . 7 . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
+. . . 7 . . f d d d 1 1 1 1 d d d f f . . . . . 
+. . . 7 7 . f b d b f d d f b d b f c f . . . . 
+. . . 7 7 7 f c d c f 1 1 f c d c f b f . . . . 
+. . . . 7 7 f f f b d b 1 b d f f c f . . . . . 
+. . . . f c b 1 b c f f f f f f . . . . . . . . 
+. . . . f 1 c 1 c 1 f f f f f f . . . . . . . . 
+. . . . f d f d f d f f f f f . . . . . . . . . 
+. . . . . f . f . f . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+`, Spritely.Movable, SpriteKind.Enemy)
 TileWorld.moveWithButtons(SpriteKind.Player)
