@@ -50,7 +50,6 @@ TileWorld.onMovedInto(SpriteKind.Rock, function () {
 TileWorld.onMovedInto(SpriteKind.Player, function () {
     TileWorld.hasCode(6, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
     TileWorld.removeOther(_tileDir(TileDir.None))
-    game.showLongText(convertToText(TileWorld.getSpriteCount(6)), DialogLayout.Bottom)
     if (TileWorld.getSpriteCount(6) == 0) {
         game.over(true)
     }
@@ -74,14 +73,14 @@ c d d d d d 6 d d d d b d d d d d d b d d d d d d d d d d d d c
 c d d 7 d d b d d d d b d d d d d d b d d d d b d d d d d d d c 
 c d d d d d d d d d d d d d d d d d b 1 1 d d d d d d b d d d c 
 c a a a a a a a a a a a a a a a a a a 1 1 d d d d d b d d d d c 
-c d d d d d d d d d d d d d d d d d d 1 1 d d d b b b b b b d c 
-c d d d b d d d d d d d d d d d d d d 1 1 b d d d d b d d d d c 
-c d d d d d d d d d d d d d d b d d d 2 1 d d d d d d b d d d c 
+c d d d d d d d d d d d d d d d d d d 1 1 d d d 6 b b b b b d c 
+c d d d b d d d d d d d d d d d d d d 1 1 6 d d d d b d d d d c 
+c d d d d d d d d d d d d d d 6 d d d 2 1 d d d d d d b d d d c 
 c d d d d d d d d a a a a a a a a a a a a a a a a a a a a a a c 
-c d 1 d d d d b d d d d d d d d b 1 1 1 1 1 1 1 1 1 1 d d d d c 
-c d 1 1 d d b b b d d d d d d d d d d d d b d d d d 1 d d d d c 
-c d 1 d d d d b d d d d d d d d d d d d b b b d d d 1 d d d d c 
-c d b d d d d d d d d d d d d d d d d d d b d d d d 2 d d d d c 
+c d 1 d d d d 6 d d d d d d d d b 1 1 1 1 1 1 1 1 1 1 d d d d c 
+c d 1 1 d d b b b d d d d d d d d d d d d 6 d d d d 1 d d d d c 
+c d 1 d d d d 6 d d d d d d d d d d d d 6 6 6 d d d 1 d d d d c 
+c d b d d d d d d d d d d d d d d d d d d 6 d d d d 2 d d d d c 
 c d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d c 
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
 `)
