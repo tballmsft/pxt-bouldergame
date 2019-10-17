@@ -33,19 +33,27 @@ TileWorld.onMovedInto(SpriteKind.Rock, function () {
     TileWorld.hasCode(7, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
     game.over(false)
 })
-TileWorld.onChangeAround(SpriteKind.Rock, function () {
-    TileWorld.hasKind(SpriteKind.Space, _tileDir(TileDir.Down), _tileDir(TileDir.None), ResultSet.Only)
-    TileWorld.moveSelf(_tileDir(TileDir.Down))
-})
 TileWorld.onMoveRequest(SpriteKind.Rock, function (dir) {
     TileWorld._isOneOf(dir, Membership.OneOf, TileDir.Down, TileDir.None)
     TileWorld.hasKind(SpriteKind.Space, dir, _tileDir(TileDir.None), ResultSet.One)
     TileWorld.hasKind(SpriteKind.Rock, dir, _tileDir(TileDir.None), ResultSet.Zero)
     TileWorld.moveSelf(_tileDir(TileDir.Down))
 })
+TileWorld.onChangeAround(SpriteKind.Rock, function () {
+    TileWorld.hasKind(SpriteKind.Space, _tileDir(TileDir.Down), _tileDir(TileDir.None), ResultSet.Only)
+    TileWorld.moveSelf(_tileDir(TileDir.Down))
+})
+TileWorld.onMovedInto(SpriteKind.Rock, function () {
+    TileWorld.hasCode(2, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
+    TileWorld.removeOther(_tileDir(TileDir.None))
+})
 TileWorld.onMovedInto(SpriteKind.Player, function () {
     TileWorld.hasCode(6, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
     TileWorld.removeOther(_tileDir(TileDir.None))
+    game.showLongText(convertToText(TileWorld.getSpriteCount(6)), DialogLayout.Bottom)
+    if (TileWorld.getSpriteCount(6) == 0) {
+        game.over(true)
+    }
 })
 TileWorld.onChangeAround(SpriteKind.Rock, function () {
     TileWorld.hasKind(SpriteKind.Space, _tileDir(TileDir.Left), _tileDir(TileDir.None), ResultSet.Only)
@@ -59,10 +67,6 @@ TileWorld.onChangeAround(SpriteKind.Rock, function () {
     TileWorld.hasKind(SpriteKind.Rock, _tileDir(TileDir.Down), _tileDir(TileDir.None), ResultSet.One)
     TileWorld.moveSelf(_tileDir(TileDir.Right))
 })
-TileWorld.onMovedInto(SpriteKind.Rock, function () {
-    TileWorld.hasCode(2, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
-    TileWorld.removeOther(_tileDir(TileDir.None))
-})
 TileWorld.setTileMap(img`
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
 c d d d d d d d d d d b d d d d d d b d d d d d d d d d d d d c 
@@ -70,14 +74,14 @@ c d d d d d 6 d d d d b d d d d d d b d d d d d d d d d d d d c
 c d d 7 d d b d d d d b d d d d d d b d d d d b d d d d d d d c 
 c d d d d d d d d d d d d d d d d d b 1 1 d d d d d d b d d d c 
 c a a a a a a a a a a a a a a a a a a 1 1 d d d d d b d d d d c 
-c d d d d d d d d d d d d d d d d d d 1 1 d d d 6 b b b b b d c 
-c d d d b d d d d d d d d d d d d d d 1 1 6 d d d d b d d d d c 
-c d d d d d d d d d d d d d d 6 d d d 2 1 d d d d d d b d d d c 
+c d d d d d d d d d d d d d d d d d d 1 1 d d d b b b b b b d c 
+c d d d b d d d d d d d d d d d d d d 1 1 b d d d d b d d d d c 
+c d d d d d d d d d d d d d d b d d d 2 1 d d d d d d b d d d c 
 c d d d d d d d d a a a a a a a a a a a a a a a a a a a a a a c 
-c d 1 d d d d 6 d d d d d d d d b 1 1 1 1 1 1 1 1 1 1 d d d d c 
-c d 1 1 d d b b b d d d d d d d d d d d d 6 d d d d 1 d d d d c 
-c d 1 d d d d 6 d d d d d d d d d d d d 6 6 6 d d d 1 d d d d c 
-c d b d d d d d d d d d d d d d d d d d d 6 d d d d 2 d d d d c 
+c d 1 d d d d b d d d d d d d d b 1 1 1 1 1 1 1 1 1 1 d d d d c 
+c d 1 1 d d b b b d d d d d d d d d d d d b d d d d 1 d d d d c 
+c d 1 d d d d b d d d d d d d d d d d d b b b d d d 1 d d d d c 
+c d b d d d d d d d d d d d d d d d d d d b d d d d 2 d d d d c 
 c d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d c 
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
 `)
