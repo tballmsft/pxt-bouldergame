@@ -63,6 +63,18 @@ TileWorld.onMovedInto(SpriteKind.Player, function () {
     TileWorld.hasCode(6, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
     TileWorld.removeOther(_tileDir(TileDir.None))
 })
+TileWorld.onMoveRequest(SpriteKind.Enemy, function (dir) {
+    TileWorld.hasKind(SpriteKind.Space, dir, _tileDir(TileDir.None), ResultSet.One)
+    TileWorld.hasKind(SpriteKind.Rock, dir, _tileDir(TileDir.None), ResultSet.Zero)
+    TileWorld.moveSelf(dir)
+})
+TileWorld.onChangeAround(SpriteKind.Enemy, function () {
+    direction = Math.randomRange(1, 4)
+    TileWorld.hasKind(SpriteKind.Space, direction, _tileDir(TileDir.None), ResultSet.One)
+    TileWorld.hasKind(SpriteKind.Rock, direction, _tileDir(TileDir.None), ResultSet.Zero)
+    TileWorld.moveSelf(direction)
+})
+let direction = 0
 TileWorld.setTileMap(img`
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
 c d d d d d d d d d d b d d d d d d b d d d d d d d d d d d d c 
