@@ -47,13 +47,6 @@ TileWorld.onMovedInto(SpriteKind.Rock, function () {
     TileWorld.hasCode(2, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
     TileWorld.removeOther(_tileDir(TileDir.None))
 })
-TileWorld.onMovedInto(SpriteKind.Player, function () {
-    TileWorld.hasCode(6, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
-    TileWorld.removeOther(_tileDir(TileDir.None))
-    if (TileWorld.getSpriteCount(6) == 0) {
-        game.over(true)
-    }
-})
 TileWorld.onChangeAround(SpriteKind.Rock, function () {
     TileWorld.hasKind(SpriteKind.Space, _tileDir(TileDir.Left), _tileDir(TileDir.None), ResultSet.Only)
     TileWorld.hasKind(SpriteKind.Space, _tileDir(TileDir.Left), _tileDir(TileDir.Down), ResultSet.Only)
@@ -65,6 +58,10 @@ TileWorld.onChangeAround(SpriteKind.Rock, function () {
     TileWorld.hasKind(SpriteKind.Space, _tileDir(TileDir.Right), _tileDir(TileDir.Down), ResultSet.Only)
     TileWorld.hasKind(SpriteKind.Rock, _tileDir(TileDir.Down), _tileDir(TileDir.None), ResultSet.One)
     TileWorld.moveSelf(_tileDir(TileDir.Right))
+})
+TileWorld.onMovedInto(SpriteKind.Player, function () {
+    TileWorld.hasCode(6, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
+    TileWorld.removeOther(_tileDir(TileDir.None))
 })
 TileWorld.setTileMap(img`
 c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c 
@@ -238,3 +235,8 @@ TileWorld.addSprite(2, img`
 . . . . . . . . . . . . . . . . . . . . . . . . 
 `, Spritely.Movable, SpriteKind.Enemy)
 TileWorld.moveWithButtons(SpriteKind.Player)
+game.onUpdateInterval(500, function () {
+    if (TileWorld.getSpriteCount(6) == 0) {
+        game.over(true)
+    }
+})
