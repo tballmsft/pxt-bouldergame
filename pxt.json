@@ -11,5 +11,6 @@
         "README.md"
     ],
     "preferredEditor": "blocksprj",
-    "testFiles": []
+    "testFiles": [],
+    "version": "1.0.0"
 }
