@@ -1,6 +1,6 @@
 # pxt-bouldergame
 
-A popular retro arcade game that uses the (TileWorld)[https://github.com/pxt-tileworld] extension.
+A popular retro game for MakeCode Arcade that uses the [TileWorld](https://github.com/pxt-tileworld) extension.
 
 Rules:
 - collect all the diamonds
