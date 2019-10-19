@@ -2,7 +2,7 @@
     "name": "boulderGame",
     "dependencies": {
         "device": "*",
-        "pxt-tilesprite": "github:tballmsft/pxt-tilesprite"
+        "pxt-tilesprite": "workspace:8fa74bb4-4622-48be-98e5-0a7f5d98f336"
     },
     "description": "",
     "files": [

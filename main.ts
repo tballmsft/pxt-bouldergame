@@ -11,15 +11,19 @@ TileWorld.onMoveRequest(SpriteKind.Player, function (dir) {
     TileWorld.moveSelf(dir)
     TileWorld.moveOther(dir, dir)
 })
+TileWorld.onMovedInto(SpriteKind.Rock, function () {
+    TileWorld.hasKind(SpriteKind.Rock, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
+    TileWorld.knockBackOther(_tileDir(TileDir.None))
+})
+TileWorld.onMovedInto(SpriteKind.Player, function () {
+    TileWorld.hasCode(2, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
+    game.over(false)
+})
 TileWorld.onMoveRequest(SpriteKind.Player, function (dir) {
     TileWorld.setCode(1, _tileDir(TileDir.None))
     TileWorld.hasKind(SpriteKind.Wall, dir, _tileDir(TileDir.None), ResultSet.Zero)
     TileWorld.hasCode(11, dir, _tileDir(TileDir.None), ResultSet.Zero)
     TileWorld.moveSelf(dir)
-})
-TileWorld.onMovedInto(SpriteKind.Player, function () {
-    TileWorld.hasCode(2, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
-    game.over(false)
 })
 TileWorld.onMovedInto(SpriteKind.Enemy, function () {
     TileWorld.hasCode(7, _tileDir(TileDir.None), _tileDir(TileDir.None), ResultSet.One)
