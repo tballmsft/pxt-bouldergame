@@ -2,7 +2,7 @@
     "name": "boulderGame",
     "dependencies": {
         "device": "*",
-        "pxt-tilesprite": "github:tballmsft/pxt-tilesprite#v1.1.0"
+        "pxt-tileworld": "github:tballmsft/pxt-tileworld#v2.0.0"
     },
     "description": "",
     "files": [
@@ -11,6 +11,5 @@
         "README.md"
     ],
     "preferredEditor": "blocksprj",
-    "testFiles": [],
-    "version": "0.1.0"
+    "testFiles": []
 }
