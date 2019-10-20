@@ -2,7 +2,7 @@
     "name": "boulderGame",
     "dependencies": {
         "device": "*",
-        "pxt-tileworld": "github:tballmsft/pxt-tileworld#v2.0.0"
+        "pxt-tileworld": "github:tballmsft/pxt-tileworld#v2.0.1"
     },
     "description": "",
     "files": [
